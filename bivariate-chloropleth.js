@@ -14,7 +14,7 @@ percapita = false;
 highways = false;
 chartsvg = null;
 highways_node = null;
-nytimes_data = "https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv"
+nytimes_data = "./us-counties.csv"; //"https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv"
 
 xvar="cases";
 yvar="delta_cases";
