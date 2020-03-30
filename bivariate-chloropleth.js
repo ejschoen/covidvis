@@ -14,6 +14,7 @@ percapita = false;
 highways = false;
 chartsvg = null;
 highways_node = null;
+nytimes_data = "https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv"
 
 xvar="cases";
 yvar="delta_cases";
@@ -381,7 +382,7 @@ chart = (selector) => {
   d3.json("./counties-albers-10m.json").then((map_data) => {
     us = map_data;
     states = new Map(us.objects.states.geometries.map(d => [d.id, d.properties]))
-    d3.csv("./us-counties.csv", 
+    d3.csv(nytimes_data,
            {headers: {"Cache": "no-cache", "Content-Type": "text/plain; charset=UTF-8"}}).then((rows) => {
     oldest = rows[0].date;
     newest = rows[rows.length-1].date;
