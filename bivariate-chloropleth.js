@@ -349,7 +349,7 @@ chart = (selector) => {
   fips_map = {"New York City" : ["36081","36047","36085","36005","36061"]}
   
   get_population_data = () => {
-    d3.json("./data/population.json").then((pop_data) => {
+    d3.json("./population.json").then((pop_data) => {
         population_by_county = new Map(pop_data.slice(1).map(([population,state,county]) => [state+county,+population]));
         for(special_place in fips_map) {
             counties = fips_map[special_place];
@@ -378,10 +378,10 @@ chart = (selector) => {
   }
   
   
-  d3.json("./data/counties-albers-10m.json").then((map_data) => {
+  d3.json("./counties-albers-10m.json").then((map_data) => {
     us = map_data;
     states = new Map(us.objects.states.geometries.map(d => [d.id, d.properties]))
-    d3.csv("./data/us-counties.csv", 
+    d3.csv("./us-counties.csv", 
            {headers: {"Cache": "no-cache", "Content-Type": "text/plain; charset=UTF-8"}}).then((rows) => {
     oldest = rows[0].date;
     newest = rows[rows.length-1].date;
@@ -430,7 +430,7 @@ chart = (selector) => {
       document.querySelector("div#chart svg").addEventListener('resize', chartresize);
       d3.select("div#chart svg").style("height", document.querySelector("div#chart").clientHeight + "px");
 
-      d3.json("./data/usroads.json").then((usroads) => {
+      d3.json("./usroads.json").then((usroads) => {
           let highways = topojson.feature(usroads, usroads.objects.roads).features.filter(f => (f.properties.type==="Major Highway" || f.properties.type==="Secondary Highway"));
           chartsvg.append("g")
             .attr("id","highways")
