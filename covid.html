@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/d3@5.15.0/dist/d3.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+        <script src="https://unpkg.com/d3-simple-slider"></script>
+        <script src="d3.button.js"></script>
+        <script src="bivariate-chloropleth.js"></script>
+        <style>
+            body {
+              font-family: Univers, Arial, sans-serif;
+            }
+            
+            .button rect {
+              stroke: #999faa; /* navy 40% */
+              stroke-width: 2px;
+            }
+            
+            .button rect.pressed {
+              fill: #000f2b; /* navy 100% */
+            }
+            
+            .button #gradient-start {
+              stop-color: #999faa; /* navy 40% */
+              stop-opacity: 1;
+            }
+            
+            .button #gradient-stop {
+              stop-color: #4d576b; /* navy 70% */
+              stop-opacity: 1;
+            }
+            
+            .button #gradient-start.active, .button #gradient-start.pressed {
+              stop-color: #4d576b; /* navy 70% */
+            }
+            
+            .button #gradient-stop.active, .button #gradient-stop.pressed {
+              stop-color: #000f2b; /* navy 100% */
+            }
+            
+            .button text {
+              font-size: 30px;
+              fill: #eee;
+              pointer-events: none;
+              text-anchor: middle;
+              -moz-user-select: none;
+              -webkit-user-select: none;
+              -ms-user-select: none;
+            }
+
+            .attribution {
+                float: right;
+                font-weight: lighter;
+                font-size: smaller;
+            }
+
+            
+            .roads {
+                fill: none;
+                stroke-linejoin: round;
+                stroke-linecap: round;
+            }
+
+            .major-highway { stroke: #525252; stroke-width: 0.75px; }
+            .secondary-highway { stroke: #737373; stroke-width: 0.5px }
+            .road { stroke: #bdbdbd; }
+            .beltway { stroke: #737373; }
+            .ferry-route { stroke: #4393c3; stroke-width: 1.5px; }
+            </style>
+    </head>
+    <body>
+        <div style="width:100%">
+            <div id="slider" style="display:inline-block;width:60%"></div>
+            <div id="per-capita" class="button" style="display:inline-block;width:10%"></div>
+            <div id="quantiles" class="button" style="display:inline-block;width:10%"></div>
+            <div id="roads" class="button" style="display:inline-block;width:10%"></div>
+        </div>
+        <div id="chart"></div>
+        <div class="attribution">
+            <p>Data from The New York Times, based on reports from state and local health agencies.</p>
+        </div>
+    </body>
+</html>
