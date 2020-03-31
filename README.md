@@ -6,3 +6,6 @@ This is a “bivariate” rendering derived from https://observablehq.com/@d3/bi
  
 Toggling the “Thresholds” button will change the coloring to use even intervals between the minimum and maximum values of a measure for the selected day.  (In threshold coloring, the only region with any intense coloring right now will be New York City…)   Click on a label in the legend to change the measure being mapped to that axis’ color.
  
+Toggling the "Highways" button will show or hide major and secondary highways.
+
+Clicking on a county will show data on a daily basis for that county, as a line plot in a modal window.  You can toggle between linear and logarithmic axes.  Click on the "x" at the upper right of the window to close the plot.
